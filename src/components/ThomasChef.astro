@@ -1,0 +1,108 @@
+---
+interface Props {
+  size?: string;
+  class?: string;
+}
+
+const { size = "280", class: className = "" } = Astro.props;
+---
+
+<!-- Chef Thomas — chef hat (toque), white coat, neckerchief -->
+<div class:list={["mascot-float inline-block", className]}>
+  <svg width={size} height={size} viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="ch-skin" x1="30%" y1="0%" x2="70%" y2="100%">
+        <stop offset="0%" stop-color="#5BB8FF" />
+        <stop offset="100%" stop-color="#0c87f2" />
+      </linearGradient>
+      <linearGradient id="ch-coat" x1="50%" y1="0%" x2="50%" y2="100%">
+        <stop offset="0%" stop-color="#e8edf4" />
+        <stop offset="100%" stop-color="#d0d8e4" />
+      </linearGradient>
+      <linearGradient id="ch-shoe" x1="50%" y1="0%" x2="50%" y2="100%">
+        <stop offset="0%" stop-color="#0860b8" />
+        <stop offset="100%" stop-color="#0054a8" />
+      </linearGradient>
+      <radialGradient id="ch-bg-glow" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#36a5ff" stop-opacity="0.1" />
+        <stop offset="100%" stop-color="#36a5ff" stop-opacity="0" />
+      </radialGradient>
+    </defs>
+
+    <circle cx="100" cy="100" r="98" fill="url(#ch-bg-glow)" />
+
+    <g transform="rotate(2, 100, 100)">
+      <!-- HEAD — drawn first, hat overlaps on top -->
+      <rect x="50" y="14" width="100" height="60" rx="10" fill="url(#ch-skin)" />
+
+      <!-- CHEF HAT (toque) — tall, puffy, unmistakably a chef hat -->
+      <g transform="rotate(-4, 100, 14)">
+        <!-- Hat band — snug on head -->
+        <rect x="52" y="4" width="96" height="12" rx="3" fill="#d0d6e0" />
+        <line x1="52" y1="16" x2="148" y2="16" stroke="#a0a8b8" stroke-width="1.5" opacity="0.45" />
+        <!-- Toque body — tall, billowing, narrows at top -->
+        <path d="M58 4 C42 -4 40 -24 52 -40 Q62 -54 80 -58 Q92 -62 100 -62 Q108 -62 120 -58 Q138 -54 148 -40 C160 -24 158 -4 142 4 Z" fill="#e8edf4" />
+        <!-- Top gather — pinched -->
+        <ellipse cx="100" cy="-58" rx="14" ry="6" fill="#dce2ec" />
+        <!-- Pleats — vertical folds in the fabric -->
+        <path d="M72 4 Q68 -20 76 -50" stroke="#c4ccd8" stroke-width="1.3" fill="none" opacity="0.4" />
+        <path d="M88 4 Q86 -24 90 -56" stroke="#c4ccd8" stroke-width="1.3" fill="none" opacity="0.4" />
+        <path d="M112 4 Q114 -24 110 -56" stroke="#c4ccd8" stroke-width="1.3" fill="none" opacity="0.4" />
+        <path d="M128 4 Q132 -20 124 -50" stroke="#c4ccd8" stroke-width="1.3" fill="none" opacity="0.4" />
+      </g>
+
+      <!-- Eyes -->
+      <rect x="71" y="28" width="18" height="18" rx="4" fill="white" />
+      <rect x="76" y="32" width="10" height="12" rx="2" fill="#071f3f" />
+      <rect x="81" y="32" width="4" height="4" rx="1" fill="white" opacity="0.8" />
+      <rect x="111" y="28" width="18" height="18" rx="4" fill="white" />
+      <rect x="116" y="32" width="10" height="12" rx="2" fill="#071f3f" />
+      <rect x="121" y="32" width="4" height="4" rx="1" fill="white" opacity="0.8" />
+
+      <!-- Smirk -->
+      <path d="M88 59 Q94 64 100 64 Q106 64 112 61" stroke="white" stroke-width="2" stroke-linecap="round" fill="none" />
+
+      <!-- NECK -->
+      <rect x="88" y="70" width="24" height="8" rx="3" fill="url(#ch-skin)" />
+
+      <!-- Neckerchief — knotted triangle -->
+      <polygon points="88,74 100,88 112,74" fill="#e8956a" opacity="0.6" />
+
+      <!-- BODY — chef coat (double-breasted) -->
+      <path d="M50 90 Q50 78 58 78 L142 78 Q150 78 150 90 L150 142 Q150 144 148 144 L52 144 Q50 144 50 142 Z" fill="url(#ch-coat)" />
+
+      <!-- Double-breasted buttons — bigger, bolder, unmistakably chef -->
+      <circle cx="88" cy="96" r="3.5" fill="#a0a8b8" opacity="0.65" />
+      <circle cx="112" cy="96" r="3.5" fill="#a0a8b8" opacity="0.65" />
+      <circle cx="88" cy="112" r="3.5" fill="#a0a8b8" opacity="0.65" />
+      <circle cx="112" cy="112" r="3.5" fill="#a0a8b8" opacity="0.65" />
+      <circle cx="88" cy="128" r="3.5" fill="#a0a8b8" opacity="0.65" />
+      <circle cx="112" cy="128" r="3.5" fill="#a0a8b8" opacity="0.65" />
+
+      <!-- Coat seams — darker, more defined -->
+      <line x1="70" y1="80" x2="70" y2="142" stroke="#8a94a8" stroke-width="1.5" opacity="0.45" />
+      <line x1="130" y1="80" x2="130" y2="142" stroke="#8a94a8" stroke-width="1.5" opacity="0.45" />
+      <!-- Coat center seam -->
+      <line x1="100" y1="88" x2="100" y2="142" stroke="#8a94a8" stroke-width="1.2" opacity="0.3" />
+
+      <!-- Cuffs -->
+      <rect x="48" y="137" width="22" height="5" rx="1" fill="white" opacity="0.3" />
+      <rect x="130" y="137" width="22" height="5" rx="1" fill="white" opacity="0.3" />
+
+      <!-- LEGS -->
+      <rect x="72" y="144" width="26" height="6" rx="2" fill="#0a6fd4" />
+      <rect x="102" y="144" width="26" height="6" rx="2" fill="#0a6fd4" />
+
+      <!-- Shoes -->
+      <rect x="68" y="148" width="32" height="9" rx="1" fill="url(#ch-shoe)" />
+      <rect x="100" y="148" width="32" height="9" rx="1" fill="url(#ch-shoe)" />
+    </g>
+
+    <!-- Sparkles -->
+    <g>
+      <path d="M160 0 L162 8 L170 10 L162 12 L160 20 L158 12 L150 10 L158 8 Z" fill="#e8956a" opacity="0.75" />
+      <path d="M174 8 L175.5 13 L180 14 L175.5 15 L174 20 L172.5 15 L168 14 L172.5 13 Z" fill="#e8956a" opacity="0.55" />
+      <path d="M166 22 L167 25 L170 26 L167 27 L166 30 L165 27 L162 26 L165 25 Z" fill="#e8956a" opacity="0.4" />
+    </g>
+  </svg>
+</div>

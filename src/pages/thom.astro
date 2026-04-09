@@ -1,0 +1,59 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Thomas from '../components/Thomas.astro';
+import ThomasDoctor from '../components/ThomasDoctor.astro';
+import ThomasAstronaut from '../components/ThomasAstronaut.astro';
+import ThomasChef from '../components/ThomasChef.astro';
+import ThomasPolice from '../components/ThomasPolice.astro';
+import ThomasFirefighter from '../components/ThomasFirefighter.astro';
+import '../styles/global.css';
+---
+
+<Layout title="Meet ThomOS">
+  <section class="min-h-screen py-20 grid-bg">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <h1 class="font-display text-4xl font-bold text-text-primary mb-4">Meet ThomOS</h1>
+      <p class="text-text-muted text-lg mb-16">Same guy. Every role. Always that look.</p>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 justify-items-center">
+
+        <div class="text-center">
+          <Thomas size="180" />
+          <p class="font-display font-bold text-text-primary mt-4">ThomOS</p>
+          <p class="text-text-muted text-xs mt-1">"You know."</p>
+        </div>
+
+        <div class="text-center">
+          <ThomasDoctor size="180" />
+          <p class="font-display font-bold text-text-primary mt-4">Dr. ThomOS</p>
+          <p class="text-text-muted text-xs mt-1">"Trust me, I'm a doctor."</p>
+        </div>
+
+        <div class="text-center">
+          <ThomasAstronaut size="180" />
+          <p class="font-display font-bold text-text-primary mt-4">Major ThomOS</p>
+          <p class="text-text-muted text-xs mt-1">"Ground control, we're good."</p>
+        </div>
+
+        <div class="text-center">
+          <ThomasChef size="180" />
+          <p class="font-display font-bold text-text-primary mt-4">Chef ThomOS</p>
+          <p class="text-text-muted text-xs mt-1">"Kiss the cook."</p>
+        </div>
+
+        <div class="text-center">
+          <ThomasPolice size="180" />
+          <p class="font-display font-bold text-text-primary mt-4">Officer ThomOS</p>
+          <p class="text-text-muted text-xs mt-1">"License and registration."</p>
+        </div>
+
+        <div class="text-center">
+          <ThomasFirefighter size="180" />
+          <p class="font-display font-bold text-text-primary mt-4">Captain ThomOS</p>
+          <p class="text-text-muted text-xs mt-1">"I run into problems."</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</Layout>

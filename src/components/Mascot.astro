@@ -1,0 +1,112 @@
+---
+interface Props {
+  size?: string;
+  class?: string;
+}
+
+const { size = "280", class: className = "" } = Astro.props;
+---
+
+<!--
+  ThomOS mascot — "Thom."
+  Rounded top (shoulders match head), flat bottom (jacket hem).
+  Shirt cuffs as clean vertical lines on outer arms.
+  Big head, compact structured body. Charming.
+-->
+<div class:list={["mascot-float inline-block", className]}>
+  <svg width={size} height={size} viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="skin" x1="30%" y1="0%" x2="70%" y2="100%">
+        <stop offset="0%" stop-color="#5BB8FF" />
+        <stop offset="100%" stop-color="#0c87f2" />
+      </linearGradient>
+      <linearGradient id="tux" x1="50%" y1="0%" x2="50%" y2="100%">
+        <stop offset="0%" stop-color="#0a6fd4" />
+        <stop offset="100%" stop-color="#0860b8" />
+      </linearGradient>
+      <linearGradient id="shoe" x1="50%" y1="0%" x2="50%" y2="100%">
+        <stop offset="0%" stop-color="#0860b8" />
+        <stop offset="100%" stop-color="#0054a8" />
+      </linearGradient>
+      <radialGradient id="bg-glow" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#36a5ff" stop-opacity="0.1" />
+        <stop offset="100%" stop-color="#36a5ff" stop-opacity="0" />
+      </radialGradient>
+    </defs>
+
+    <!-- Subtle glow -->
+    <circle cx="100" cy="100" r="98" fill="url(#bg-glow)" />
+
+    <!-- Tilted 2deg -->
+    <g transform="rotate(2, 100, 100)">
+
+      <!-- ===== HEAD ===== -->
+      <rect x="50" y="6" width="100" height="68" rx="26" fill="url(#skin)" />
+
+      <!-- Eyes -->
+      <circle cx="80" cy="34" r="9.5" fill="white" />
+      <circle cx="82.5" cy="35" r="5" fill="#071f3f" />
+      <circle cx="85" cy="32" r="1.8" fill="white" opacity="0.8" />
+
+      <circle cx="120" cy="34" r="9.5" fill="white" />
+      <circle cx="122.5" cy="35" r="5" fill="#071f3f" />
+      <circle cx="125" cy="32" r="1.8" fill="white" opacity="0.8" />
+
+      <!-- The "we know" look — left side lifts, matches eye direction -->
+      <path d="M88 59 Q94 64 100 64 Q106 64 112 61" stroke="white" stroke-width="2" stroke-linecap="round" fill="none" />
+
+      <!-- ===== NECK ===== -->
+      <rect x="88" y="70" width="24" height="8" rx="4" fill="url(#skin)" />
+
+      <!-- ===== BODY — rounded shoulders, flat bottom hem ===== -->
+      <!-- Custom shape: rounded top corners, straight/tight bottom -->
+      <path d="M50 96 Q50 76 72 76 L128 76 Q150 76 150 96 L150 140 Q150 144 146 144 L54 144 Q50 144 50 140 Z" fill="url(#tux)" />
+
+      <!-- ===== SHIRT — all one color, pops against the jacket ===== -->
+      <!-- Shirt V at chest -->
+      <polygon points="93,76 100,114 107,76" fill="#b9dfff" opacity="0.45" />
+
+      <!-- Bow tie -->
+      <polygon points="94,82 97,78 97,86" fill="#5BB8FF" />
+      <polygon points="106,82 103,78 103,86" fill="#5BB8FF" />
+      <circle cx="100" cy="82" r="2" fill="#7cc4ff" />
+
+      <!-- Lapel lines -->
+      <line x1="93" y1="76" x2="86" y2="110" stroke="#5BB8FF" stroke-width="1.2" opacity="0.25" />
+      <line x1="107" y1="76" x2="114" y2="110" stroke="#5BB8FF" stroke-width="1.2" opacity="0.25" />
+
+      <!-- Sleeve seam lines -->
+      <line x1="70" y1="78" x2="70" y2="142" stroke="#5BB8FF" stroke-width="1" opacity="0.15" />
+      <line x1="130" y1="78" x2="130" y2="142" stroke="#5BB8FF" stroke-width="1" opacity="0.15" />
+
+      <!-- Button -->
+      <circle cx="100" cy="122" r="1.5" fill="#5BB8FF" opacity="0.3" />
+
+      <!-- Pocket square -->
+      <rect x="62" y="96" width="6" height="1.5" rx="0.75" fill="#5BB8FF" opacity="0.25" />
+
+      <!-- ===== SHIRT CUFFS — wider bars, same color as shirt V, pops ===== -->
+      <rect x="48" y="137" width="22" height="5" rx="1.5" fill="#b9dfff" opacity="0.45" />
+      <rect x="130" y="137" width="22" height="5" rx="1.5" fill="#b9dfff" opacity="0.45" />
+
+      <!-- ===== LEGS — short, sturdy ===== -->
+      <rect x="72" y="144" width="26" height="10" rx="4" fill="url(#tux)" />
+      <rect x="102" y="144" width="26" height="10" rx="4" fill="url(#tux)" />
+
+      <!-- Shoes — wider, grounded -->
+      <rect x="68" y="152" width="32" height="9" rx="4.5" fill="url(#shoe)" />
+      <rect x="100" y="152" width="32" height="9" rx="4.5" fill="url(#shoe)" />
+
+    </g>
+
+    <!-- Thinking sparkles — he's got something cooking -->
+    <g>
+      <!-- Main sparkle — 4-point star -->
+      <path d="M160 0 L162 8 L170 10 L162 12 L160 20 L158 12 L150 10 L158 8 Z" fill="#e8956a" opacity="0.75" />
+      <!-- Medium sparkle -->
+      <path d="M174 8 L175.5 13 L180 14 L175.5 15 L174 20 L172.5 15 L168 14 L172.5 13 Z" fill="#e8956a" opacity="0.55" />
+      <!-- Small sparkle -->
+      <path d="M166 22 L167 25 L170 26 L167 27 L166 30 L165 27 L162 26 L165 25 Z" fill="#e8956a" opacity="0.4" />
+    </g>
+  </svg>
+</div>

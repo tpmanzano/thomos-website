@@ -1,0 +1,40 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  brand?: string;
+}
+
+const {
+  title,
+  description = "AI context management for strategic professionals. Every session builds on the last.",
+  brand = "mPower Insight"
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,900&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+    <title>{title}</title>
+
+    <style is:inline>
+      /* Loaded via page-level import */
+    </style>
+  </head>
+  <body class="bg-surface-dark text-text-primary font-body antialiased">
+    <slot />
+  </body>
+</html>

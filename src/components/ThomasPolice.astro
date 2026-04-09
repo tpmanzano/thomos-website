@@ -1,0 +1,107 @@
+---
+interface Props {
+  size?: string;
+  class?: string;
+}
+
+const { size = "280", class: className = "" } = Astro.props;
+---
+
+<!-- Police Thomas — officer cap, badge, uniform -->
+<div class:list={["mascot-float inline-block", className]}>
+  <svg width={size} height={size} viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="po-skin" x1="30%" y1="0%" x2="70%" y2="100%">
+        <stop offset="0%" stop-color="#5BB8FF" />
+        <stop offset="100%" stop-color="#0c87f2" />
+      </linearGradient>
+      <linearGradient id="po-uniform" x1="50%" y1="0%" x2="50%" y2="100%">
+        <stop offset="0%" stop-color="#2a4570" />
+        <stop offset="100%" stop-color="#1e3558" />
+      </linearGradient>
+      <linearGradient id="po-boot" x1="50%" y1="0%" x2="50%" y2="100%">
+        <stop offset="0%" stop-color="#1e3558" />
+        <stop offset="100%" stop-color="#162a48" />
+      </linearGradient>
+      <radialGradient id="po-bg-glow" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#36a5ff" stop-opacity="0.1" />
+        <stop offset="100%" stop-color="#36a5ff" stop-opacity="0" />
+      </radialGradient>
+    </defs>
+
+    <circle cx="100" cy="100" r="98" fill="url(#po-bg-glow)" />
+
+    <g transform="rotate(2, 100, 100)">
+      <!-- OFFICER CAP — taller -->
+      <!-- Cap brim -->
+      <rect x="44" y="10" width="112" height="7" rx="2" fill="#2a4570" />
+      <!-- Cap body — taller -->
+      <rect x="52" y="-6" width="96" height="20" rx="5" fill="#2a4570" />
+      <!-- Cap top band -->
+      <rect x="52" y="-6" width="96" height="6" rx="3" fill="#1e3558" />
+      <!-- Cap badge — bigger -->
+      <rect x="88" y="0" width="24" height="10" rx="2" fill="#e8956a" opacity="0.65" />
+
+      <!-- HEAD -->
+      <rect x="50" y="16" width="100" height="58" rx="10" fill="url(#po-skin)" />
+
+      <!-- Eyes -->
+      <rect x="71" y="28" width="18" height="18" rx="4" fill="white" />
+      <rect x="76" y="32" width="10" height="12" rx="2" fill="#071f3f" />
+      <rect x="81" y="32" width="4" height="4" rx="1" fill="white" opacity="0.8" />
+      <rect x="111" y="28" width="18" height="18" rx="4" fill="white" />
+      <rect x="116" y="32" width="10" height="12" rx="2" fill="#071f3f" />
+      <rect x="121" y="32" width="4" height="4" rx="1" fill="white" opacity="0.8" />
+
+      <!-- Smirk -->
+      <path d="M88 59 Q94 64 100 64 Q106 64 112 61" stroke="white" stroke-width="2" stroke-linecap="round" fill="none" />
+
+      <!-- NECK -->
+      <rect x="88" y="70" width="24" height="8" rx="3" fill="url(#po-skin)" />
+
+      <!-- BODY — dark blue uniform -->
+      <path d="M50 88 Q50 78 58 78 L142 78 Q150 78 150 88 L150 142 Q150 144 148 144 L52 144 Q50 144 50 142 Z" fill="url(#po-uniform)" />
+
+      <!-- Shirt/tie -->
+      <polygon points="93,78 100,100 107,78" fill="#5BB8FF" opacity="0.2" />
+      <!-- Tie -->
+      <rect x="98" y="84" width="4" height="20" rx="1" fill="#2a4570" opacity="0.6" />
+
+      <!-- Badge — left chest, bigger -->
+      <path d="M60 88 L68 82 L76 88 L74 98 L62 98 Z" fill="#e8956a" opacity="0.6" />
+      <circle cx="68" cy="92" r="2" fill="#c4783a" opacity="0.5" />
+
+      <!-- Shoulder epaulettes -->
+      <rect x="50" y="78" width="18" height="4" rx="1" fill="#2a3d5a" opacity="0.5" />
+      <rect x="132" y="78" width="18" height="4" rx="1" fill="#2a3d5a" opacity="0.5" />
+
+      <!-- Sleeve seams -->
+      <line x1="70" y1="80" x2="70" y2="142" stroke="#2a3d5a" stroke-width="1" opacity="0.2" />
+      <line x1="130" y1="80" x2="130" y2="142" stroke="#2a3d5a" stroke-width="1" opacity="0.2" />
+
+      <!-- Belt -->
+      <rect x="50" y="122" width="100" height="6" rx="1" fill="#0f1a2e" opacity="0.5" />
+      <!-- Belt buckle -->
+      <rect x="94" y="121" width="12" height="8" rx="1.5" fill="#e8956a" opacity="0.4" />
+
+      <!-- Cuffs -->
+      <rect x="48" y="137" width="22" height="5" rx="1" fill="#5BB8FF" opacity="0.2" />
+      <rect x="130" y="137" width="22" height="5" rx="1" fill="#5BB8FF" opacity="0.2" />
+
+      <!-- LEGS -->
+      <rect x="72" y="144" width="26" height="6" rx="2" fill="url(#po-uniform)" />
+      <rect x="102" y="144" width="26" height="6" rx="2" fill="url(#po-uniform)" />
+
+      <!-- Boots -->
+      <rect x="68" y="148" width="32" height="9" rx="1" fill="url(#po-boot)" />
+      <rect x="100" y="148" width="32" height="9" rx="1" fill="url(#po-boot)" />
+    </g>
+
+    <!-- Sparkles -->
+    <g>
+      <path d="M160 0 L162 8 L170 10 L162 12 L160 20 L158 12 L150 10 L158 8 Z" fill="#e8956a" opacity="0.75" />
+      <path d="M174 8 L175.5 13 L180 14 L175.5 15 L174 20 L172.5 15 L168 14 L172.5 13 Z" fill="#e8956a" opacity="0.55" />
+      <path d="M166 22 L167 25 L170 26 L167 27 L166 30 L165 27 L162 26 L165 25 Z" fill="#e8956a" opacity="0.4" />
+    </g>
+  </svg>
+</div>
